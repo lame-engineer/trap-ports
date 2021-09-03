@@ -1,0 +1,10 @@
+#! /bin/bash
+echo "Enter the starting IP address : "
+read IPadd
+echo "Enter the last IP address : "
+read lastIP
+echo "Enter the port number you want to scan for : "
+read port
+nmap -sT $IPadd-$lastIP -p $port >/dev/null -oG MyPortScan
+cat MyPortScan | grep open > NeatPart
+cat NeatPart
